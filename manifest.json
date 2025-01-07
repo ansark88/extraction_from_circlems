@@ -1,0 +1,10 @@
+{
+	"manifest_version": 2,
+	"name": "Domain Link Extractor",
+	"version": "1.0",
+	"description": "Extract links from specific domains on the current page",
+	"permissions": ["activeTab", "storage"],
+	"browser_action": {
+		"default_popup": "popup.html"
+	}
+}

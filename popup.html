@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+    }
+    #result_area {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    #results {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .link-item {
+      margin-bottom: 5px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- <input type="text" id="domain" placeholder="対象ドメインを入力 (例: example.com)"> -->
+  <button id="extract">生成</button>
+  <textarea id="result_area" name="result_area" cols="30" rows="5" readonly></textarea>
+  <button id="copy">コピー</button>
+  <div id="results"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
