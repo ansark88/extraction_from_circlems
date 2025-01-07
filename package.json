@@ -1,0 +1,15 @@
+{
+	"name": "extraction_from_circlems",
+	"version": "1.0.0",
+	"description": "this is a firefox addon.",
+	"main": "popup.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "ansark88",
+	"license": "ISC",
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4"
+	}
+}
