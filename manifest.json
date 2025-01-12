@@ -3,8 +3,12 @@
 	"name": "Domain Link Extractor",
 	"version": "1.0",
 	"description": "Extract links from specific domains on the current page",
-	"permissions": ["activeTab", "storage"],
+	"permissions": ["activeTab", "storage", "http://localhost:3000/*"],
 	"browser_action": {
 		"default_popup": "popup.html"
+	},
+
+	"background": {
+		"scripts": ["background.js"]
 	}
 }

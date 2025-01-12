@@ -4,12 +4,17 @@
 	"description": "this is a firefox addon.",
 	"main": "popup.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "npx @biomejs/biome lint --write",
+		"format": "npx @biomejs/biome format --write"
 	},
 	"keywords": [],
 	"author": "ansark88",
 	"license": "ISC",
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4"
+	},
+	"dependencies": {
+		"douhin_extraction": "github:ansark88/doujin_extraction"
 	}
 }

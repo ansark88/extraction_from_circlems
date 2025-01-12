@@ -1,3 +1,5 @@
+// const { extractCircleID, PlatformList } = require("douhin_extraction");
+
 const services = [
 	{
 		service: "melonbooks",
@@ -7,10 +9,14 @@ const services = [
 	{ service: "pixiv", domain: "pixiv.net", cicrle_string: "users" },
 	{ service: "pixiv", domain: "pixiv.net", cicrle_string: "member.php" },
 	{ service: "twitter", domain: "twitter.com", cicrle_string: "" },
-	{ service: "x", domain: "x.com", cicrle_string: "" },
+	{ service: "twitter", domain: "x.com", cicrle_string: "" },
 	{ service: "dlsite", domain: "dlsite.com", cicrle_string: "maker_id" },
 	{ service: "fanza", domain: "dmm.co.jp", cicrle_string: "article=maker" },
 ];
+
+// 送信データのベース
+// Todo: 後でClass化する
+let circle_param = {};
 
 // 対象ページからlinkを抜き出す関数(string型である必要がある)
 const extractLinks = `(function() {
@@ -99,7 +105,7 @@ document.getElementById("extract").addEventListener("click", async () => {
 	if (errMessage) {
 		resultsDiv.innerHTML = errMessage;
 		return;
-	} 
+	}
 	errMessage = "";
 
 	// サークル名を取得する関数を実行する
@@ -122,7 +128,7 @@ document.getElementById("extract").addEventListener("click", async () => {
 	if (errMessage) {
 		resultsDiv.innerHTML = errMessage;
 		return;
-	} 
+	}
 	errMessage = "";
 
 	browser.tabs
@@ -144,8 +150,13 @@ document.getElementById("extract").addEventListener("click", async () => {
 				links: links,
 			};
 
+			// POST用のjsonを出力する
 			const result_json = JSON.stringify(circle_info);
+			circle_param = circle_info;
 			resultArea.value = result_json;
+
+			const dj_button = document.getElementById("post_dj");
+			dj_button.hidden = false;
 
 			for (const link of links) {
 				const linkDiv = document.createElement("div");
@@ -169,4 +180,10 @@ document.getElementById("extract").addEventListener("click", async () => {
 document.getElementById("copy").addEventListener("click", () => {
 	const el = document.getElementById("result_area");
 	navigator.clipboard.writeText(el.value);
+});
+
+document.getElementById("post_dj").addEventListener("click", () => {
+	// extractCircleID(PlatformList.)
+
+	sendDJ(circle_param);
 });
